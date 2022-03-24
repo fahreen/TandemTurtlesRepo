@@ -11,13 +11,6 @@ public class Manager : MonoBehaviour
 
     public static string TurtleName; 
     
-
-
-
-
-
-
-
     //singleton 
     void Awake()
     {
@@ -30,4 +23,5 @@ public class Manager : MonoBehaviour
             instance = this;
         }
     }
+    
 }
