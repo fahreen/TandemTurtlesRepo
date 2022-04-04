@@ -14,7 +14,7 @@ public class AnswerDetection : MonoBehaviour
     {
         if(this.tag== "Right" && other.tag == "Player")
         {
-            
+            Manager.Correct++;
            // Debug.Log("SpeedUP!");
 
             this.transform.localScale = new Vector3(0, 0, 0);

@@ -6,18 +6,13 @@ public class Manager : MonoBehaviour
 {
 
     public static Manager instance;
-    public static List<string> rank = new List<string>();
+    public static List<string> rank;
     public static Color turtleColour = Color.white;
+
+    public static  int Correct;
 
     public static string TurtleName; 
     
-
-
-
-
-
-
-
     //singleton 
     void Awake()
     {
@@ -30,4 +25,12 @@ public class Manager : MonoBehaviour
             instance = this;
         }
     }
+
+
+    private void Start()
+    {
+        rank =  new List<string>();
+        Correct = 0;
+    }
+
 }

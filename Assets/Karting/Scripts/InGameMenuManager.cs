@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InGameMenuManager : MonoBehaviour
@@ -108,5 +109,16 @@ public class InGameMenuManager : MonoBehaviour
     public void OnShowControlButtonClicked(bool show)
     {
         controlImage.SetActive(show);
+    }
+
+    public void ClickPauseButton()
+    {
+        SetPauseMenuActivation(true);
+    }
+    
+    public void ClickMainMenuButton()
+    {
+        SetPauseMenuActivation(false);
+        SceneManager.LoadScene("Customization");
     }
 }
