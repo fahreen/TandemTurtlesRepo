@@ -9,11 +9,14 @@ public class GameOver : MonoBehaviour
     bool gameOver;
     public GameObject player;
     public GameObject boundary;
+    public GameObject boundary2;
+    Vector3 pos;
     private void Start()
     {
         counter = 0;
         gameOver = false;
         boundary.SetActive(false);
+        boundary2.SetActive(false);
     }
 
 
@@ -25,8 +28,22 @@ public class GameOver : MonoBehaviour
             
             SceneManager.LoadScene("MyStuff/Scenes/GameOver");
         }
+
+       
         
     }
+
+
+
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(1f);
+        boundary.SetActive(true);
+        boundary2.SetActive(true);
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -36,10 +53,11 @@ public class GameOver : MonoBehaviour
             if (counter == 2)
             {
                 Manager.rank.Add(Manager.TurtleName);
+                pos = other.transform.position;
                 gameOver = true;
-                boundary.SetActive(true);
-                
-                
+                StartCoroutine(delay());
+               
+
             }
         }
     }

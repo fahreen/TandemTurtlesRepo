@@ -11,12 +11,14 @@ public class Leaderboard : MonoBehaviour
     public Text text3;
     public Text text4;
     public Text text5;
-    
+
+    public Text result;
     private bool valid;
 
     void Start()
     {
         valid = true;
+        result.text = "You Got " + Manager.Correct + " Right Out of 7!";
     }
 
     // Update is called once per frame
@@ -27,13 +29,13 @@ public class Leaderboard : MonoBehaviour
             int k = 0;
             for (int i = 0; i < Manager.rank.Count; i++)
             {
-                if (!Manager.rank[i].StartsWith("opponent"))
+                if (!Manager.rank[i].StartsWith("Op_"))
                 {
                     k = i;
                 }
             }
 
-            Manager.rank[k] = "♛ " + Manager.rank[k];
+            Manager.rank[k] = "♛ " + Manager.rank[k] + " ♛";
             
             text1.text += Manager.rank[0];
             text2.text += Manager.rank[1];
